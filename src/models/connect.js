@@ -1,9 +1,12 @@
 import { Sequelize } from "sequelize";
+import dbConfig from '../config/db.config.js'
 
-const sequelize = new Sequelize("node38_youtube", "root", "1234", {
-    host: "localhost",
-    port: 3307,
-    dialect: "mysql"
+let {dbHost, dbUser, dbPass, dbPort, dbDialect, dbName} = dbConfig
+
+const sequelize = new Sequelize(dbName, dbUser, dbPass, {
+    host: dbHost,
+    port: dbPort,
+    dialect: dbDialect
 });
 
 // try {
